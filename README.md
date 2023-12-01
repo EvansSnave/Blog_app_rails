@@ -1,186 +1,120 @@
-<a name="readme-top"></a>
+# Ruby on Rails Blog App
 
-<div align="center">
-  <h3><b> Blog App 👥</b></h3>
-</div>
+## 📗 Table of Contents
 
-<!-- TABLE OF CONTENTS -->
+- [📖 Project Overview](#about-project)
+  - [🛠 Technology Stack](#built-with)
+  - [Key Features](#key-features)
+  - [Upcoming Features](#future-project)
+- [💻 Getting Started](#getting-started)
+  - [Setup Instructions](#setup)
+  - [System Requirements](#prerequisites)
+  - [How to Use](#usage)
+- [👥 Author](#authors)
+- [🤝 Contribution](#contributing)
+- [⭐️ Support](#support)
+- [📜 License](#license)
 
-# 📗 Table of Contents
+## 📖 Project Overview <a name="about-project"></a>
 
-- [📖  Blog App](#--blog-)
-- [🛠 Built With ](#-built-with-)
-   - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-- [💻 Getting Started ](#-getting-started-)
-   - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-- [👥 Authors ](#-authors-)
-- [🙏🏻  Acknowledgements ](#-acknowledgements-)
-- [🔮 Future Features](#-future-features)
-- [🤝 Contributing ](#-contributing-)
-- [⭐️ Show your support ](#️-show-your-support-)
-- [❓ FAQ (OPTIONAL) ](#-faq-optional-)
-- [📝 License ](#-license-)
+Welcome to the Blog App, a Ruby on Rails-based application designed for creating and managing a fully functional blog website. This project empowers users to publish articles, engage with posts through comments and likes, and more.
 
+## 🛠 Technology Stack <a name="built-with"></a>
 
-<!-- PROJECT DESCRIPTION -->
+This project is developed using Ruby on Rails, a robust web framework renowned for its simplicity and productivity. Ruby on Rails serves as an excellent foundation for swiftly and efficiently building web applications.
 
-# 📖 Blog App <a name="about-project"></a>
+##  Key Features <a name="key-features"></a>
 
-**Blog App** it's classic example of a blog website; fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts. The website also allows users to follow other users and see their posts in their feed.
+- [ ] Full-fledged Ruby on Rails application.
+- [ ] User authentication and authorization.
+- [ ] Article creation, editing, and deletion.
+- [ ] Comment system for interacting with articles.
+- [ ] Liking and unliking articles.
+- [ ] Responsive web design.
+- [ ] Strong error handling and validation.
 
-## 🛠 Built With <a name="built-with"></a>
-- Ruby on Rails
-- CSS
-### Tech Stack <a name="tech-stack"></a>
+Please note: Each feature will be marked with an "x" when it is fully implemented and operational.
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="#">Ruby on Rails</a></li>
-  </ul>
-</details>
+## 🔭 Upcoming Features <a name="future-project"></a>
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="#">Local Storage</a></li>
-  </ul>
-</details>
-
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-- [X] **Database**
-- [X] **Posts**
-- [X] **Comments**
-- [X] **Likes**
-- [X] **Followers**
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- GETTING STARTED -->
+- [ ] Search functionality for locating specific articles.
+- [ ] User profiles with customizable avatars.
+- [ ] Article categories and tagging.
+- [ ] Rich text editor for formatting articles.
+- [ ] Social media sharing options for articles.
+- [ ] API endpoints for external integrations.
 
 ## 💻 Getting Started <a name="getting-started"></a>
-To get a local copy up and running, follow these steps.
 
-### Prerequisites
-Before you proceed, ensure that you have the following installed on your machine:
-- Node.js (v12 or above)
-- npm (Node Package Manager)
+To begin using the Blog App, please follow the instructions below:
 
-### Setup
-Clone this repository to your desired folder:
+### 🛠 Setup Instructions <a name="setup"></a>
 
-```sh
-  git clone https://github.com/EvansSnave/Blog_app_rails.git
-```
+1. Clone the project repository:
 
-### Install
+   ```bash
+   git clone https://github.com/EvansSnave/Blog_app_rails.git
+    ```
 
-Install the project dependencies with:
+2. Navigate to the project folder:
 
-```sh
-  npm install
-```
+    ```bash
+    cd blog-app-ruby
+    ```
 
-### Usage
+### System Requirements <a name="prerequisites"></a>
+Before you can run the Blog App, ensure the following prerequisites and configurations are in place:
 
-To run the project, execute the following command:
+- **Ruby**: Confirm that Ruby is installed on your machine. You can check for its presence by running `ruby -v` in your terminal. If it's not installed, you can download and install it from the [official Ruby website](https://www.ruby-lang.org/en/documentation/installation/).
 
-```sh
-  npm run build
-```
+- **Ruby on Rails**: You'll need the Ruby on Rails framework installed. If it's not already installed, you can do so with the following command:
+  ```
+  gem install rails
+  ```
 
-### Run tests
+- **Code Editor**: You should have a code editor like Visual Studio Code (VSCode) installed. You can download VSCode from the [official website](https://code.visualstudio.com/).
 
-To run tests, run the following command:
-```sh
-  npm start
-```
-- Open your web browser and visit http://localhost:8080.
-- You should now see socials application running in your browser.
+- **Git**: Git is essential for version control. Ensure you have Git installed and properly configured on your system. You can download Git from the [official Git website](https://git-scm.com/downloads).
 
+- **PostgreSQL**: Verify that PostgreSQL is installed and correctly configured on the server where you plan to develop the project. This project assumes the use of PostgreSQL as the default database. You can download PostgreSQL from the [official PostgreSQL website](https://www.postgresql.org/download/).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **Ruby on Rails Configuration**: Ensure that your Ruby on Rails project is configured to use PostgreSQL as the default database.
 
-<!-- AUTHORS -->
+Once you've set up these prerequisites and configurations, you'll be ready to set up and run the Blog App.
 
-## 👥 Authors <a name="authors"></a>
+### How to Use <a name="usage"></a>
+Follow these steps to utilize the Blog App:
 
-👤 **Kevin Cruz**
+1. Open your terminal.
+
+2. Navigate to the directory where the project files are located:
+
+   ```bash
+   cd /path/to/your/project/files
+   ```
+
+3. Start the Rails server:
+
+   ```bash
+   rails server
+   ```
+
+4. Open your web browser and visit http://localhost:3000 to access the Blog App.
+
+## 👥 Author <a name="authors"></a>
+
+👤 **EvanSnave**
 
 - GitHub: [EvansSnave](https://github.com/EvansSnave)
-- LinkedIn: [kevin-cruz](https://linkedin.com/in/kevin-cruz-25159a201)
+- Twitter: [Kroja13](https://twitter.com/Kroja13)
+- LinkedIn: [Kevin Cruz](https://www.linkedin.com/in/kevin-cruz-25159a201/)
 
+## 🤝 Contribution <a name="contributing"></a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Contributions, issues, and feature requests are highly encouraged! 
 
-## 🙏🏻 Acknowledgements <a name="acknowledgements"></a>
+## ⭐️ Support <a name="support"></a>
+If you find this project useful, please consider giving it a ⭐️ to show your support!
 
-I'd like to express my gratitude to everyone who made this project possible.
-
-<!--- Future Features ---->
-
-## <a href="#future-features"></a>🔮 Future Features
-- Basic UI design
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a name="contributing"></a>
-
-Contributions are welcome! If you find any bugs or want to enhance the project with new features, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make the necessary changes and commit them.
-4. Push your changes to your forked repository.
-5. Submit a pull request describing your changes.
-
-Feel free to check the [issues page](../../issues/).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
-
-## ⭐️ Show your support <a name="support"></a>
-
-If you like this project, please consider supporting us! Your support helps us to continue developing and improving our project for everyone to enjoy. Whether it's a small donation, sharing the project with your friends, or contributing your skills and expertise, every little bit makes a huge difference. With your support, we can create something truly amazing together. Thank you for being a part of our community and helping us to make a difference!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ -->
-
-## ❓ FAQ <a name="faq"></a>
-- **How do I set up the project?**
-
-  - Clone the repository from GitHub, and see the [Setup](#setup) section above for details.
-
-- **How can I contribute to the project?**
-
-  1. Fork the repository on GitHub.
-  2. Create a new branch for your changes using git checkout -b my-feature-branch.
-  3. Make your changes and commit them with descriptive commit messages.
-  4. Push your changes to your forked repository.
-  5. Submit a pull request to the original repository.
-  6. Wait for feedback and iterate on your changes as needed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./MIT.md) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## 📜 License <a name="license"></a>
+This project is licensed under the [MIT License](https://github.com/EvansSnave/Blog_app_rails/blob/dev/LICENSE).
