@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  # Move this to the top so it's available to all specs within the block
   let(:user) do
     User.create(name: 'John', posts_counter: 2)
   end
