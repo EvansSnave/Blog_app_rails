@@ -38,8 +38,8 @@ RSpec.describe Post, type: :model do
     let(:post) { create(:post, author: user) }
 
     it 'returns the five most recent comments' do
-      old_comment = create(:comment, post: post, created_at: 6.days.ago)
-      recent_comments = create_list(:comment, 5, post: post)
+      old_comment = create(:comment, post:, created_at: 6.days.ago)
+      recent_comments = create_list(:comment, 5, post:)
 
       expect(post.five_recent_comments).to eq(recent_comments.reverse)
       expect(post.five_recent_comments).not_to include(old_comment)
