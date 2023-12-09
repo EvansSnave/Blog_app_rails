@@ -6,7 +6,7 @@ RSpec.describe Like, type: :model do
   let(:post) { create(:post, author: user) }
 
   it 'updates likes counter after creation' do
-    Like.create!(post:, user:)
+    Like.create!(post: post, user: user)
     post.reload
     expect(post.likes_counter).to eq(1)
   end
