@@ -1,2 +1,42 @@
-<h1>Posts List for Given User</h1>
-<!-- Here is a list of posts for a given user -->
+<div class="container mt-5">
+  <!-- Sección de usuario -->
+  <div class="d-flex align-items-start mb-4">
+    <div class="p-3">
+      <img src="path_to_default_profile_pic.jpg" alt="Profile" class="img-thumbnail" style="width: 100px; height: 100px;">
+    </div>
+    <div class="border p-3 flex-grow-1 d-flex flex-column">
+      <h1><%= @user.name %></h1>
+      <div class="mt-auto text-right">
+        <small><%= @user.posts_counter %> posts</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de lista de posts -->
+  <h2 class="mb-4">All Posts by <%= @user.name %></h2>
+  
+  <% @posts.each do |post| %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <%= link_to post.title, user_post_path(@user, post) %>
+      </div>
+    </div>
+    
+    <!-- Comentarios para el post actual -->
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5>Comments for <%= post.title %></h5>
+        <ul class="list-group">
+          <% post.comments.limit(5).each do |comment| %>
+              <li class="list-group-item"><%= comment.text %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  
+  <!-- Paginación -->
+  <div class="mt-4 d-flex justify-content-center">
+  <%= will_paginate @posts, previous_label: '&laquo;', next_label: '&raquo;', class: 'pagination justify-content-center' %>
+  </div>
+</div>

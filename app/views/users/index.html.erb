@@ -1,2 +1,20 @@
-<h1>Users List</h1>
-<!-- Here is a list of users (you can expand on this) -->
+<div class="container mt-5">
+  <h1 class="mb-4">All Users</h1>
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 mb-4">
+        <div class="d-flex align-items-start">
+          <div class="p-3">
+            <img src="path_to_default_profile_pic.jpg" alt="Profile" class="img-thumbnail" style="width: 100px; height: 100px;">
+          </div>
+          <div class="border p-3 flex-grow-1 d-flex flex-column">
+            <h4><%= link_to user.name, user_path(user) %></h4>
+            <div class="mt-auto text-right">
+              <small><%= user.posts_counter %> posts</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
