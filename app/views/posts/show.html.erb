@@ -26,4 +26,13 @@
       </ul>
     </div>
   </div>
+  <%= form_with model: [@post, Comment.new], url: user_post_comments_path(params[:user_id], @post), local: true do |form| %>
+    <%= form.label :text, "Add a Comment:" %>
+    <%= form.text_area :text %>
+    <%= form.submit "Comment" %>
+  <% end %>
+
+  <div class="mt-3">
+  <%= button_to 'Like', user_post_likes_path(params[:user_id], @post), class: "btn btn-primary" %>
+  </div>
 </div>
