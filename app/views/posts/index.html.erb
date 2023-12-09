@@ -19,6 +19,8 @@
     <div class="card mb-4">
       <div class="card-body">
         <%= link_to post.title, user_post_path(@user, post) %>
+        <p><%= post.comments.count %> comments</p>
+        <p><%= post.likes.count %> likes</p>
       </div>
     </div>
     

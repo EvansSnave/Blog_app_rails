@@ -10,7 +10,7 @@
           <div class="border p-3 flex-grow-1 d-flex flex-column">
             <h4><%= link_to user.name, user_path(user) %></h4>
             <div class="mt-auto text-right">
-              <small><%= user.posts_counter %> posts</small>
+              <small><%= user.posts.count %> posts</small>
             </div>
           </div>
         </div>
