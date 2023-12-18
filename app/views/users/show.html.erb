@@ -1,37 +1,42 @@
 <div class="container mt-5">
+  <!-- User Info Section -->
   <div class="d-flex align-items-start mb-4">
     <div class="p-3">
       <img src="path_to_default_profile_pic.jpg" alt="Profile" class="img-thumbnail" style="width: 100px; height: 100px;">
     </div>
     <div class="border p-3 flex-grow-1 d-flex flex-column">
       <h4><%= @user.name %></h4>
-      <div class="mt-auto text-right">
-      <small><%= @user.posts.count %> posts</small>
+      <p><%= @user.bio %></p>
+      <div class="d-flex justify-content-between mt-2">
+        <small><%= @user.posts.count %> posts</small>
+        <small>simply connect</small>
       </div>
     </div>
   </div>
 
-  <div class="mb-4">
-    <p><%= @user.bio %></p>
+  <div class="text-center mb-4">
+    <%= link_to 'Create new post', new_user_post_path(@user), class: "btn btn-primary" %>
   </div>
 
-  <%= link_to 'Create new post', new_user_post_path(@user), class: "btn btn-primary mt-4" %> 
-
+  <!-- Recent Posts Section -->
   <h2 class="mb-4">Recent Posts</h2>
 
   <% @recent_posts.each do |post| %>
     <div class="card mb-4">
       <div class="card-body">
         <h5><%= link_to post.title, user_post_path(@user, post) %></h5>
-        <% if post.text.length > 35 %>
+        <% if post.text && post.text.length > 35 %>
           <p><%= post.text.first(35) %>... <%= link_to 'see more', user_post_path(@user, post) %></p>
-        <% else %>
+        <% elsif post.text %>
           <p><%= post.text %></p>
         <% end %>
-        <p><%= post.comments.count %> comments</p>
+        <small class="text-muted">Posted on <%= post.created_at.strftime('%B %d, %Y') %></small>
+        <p class="mt-2"><%= post.comments.count %> comments</p>
       </div>
     </div>
   <% end %>
 
-  <%= link_to 'All posts', user_posts_path(@user), class: "btn btn-primary" %>
+  <div class="text-center">
+    <%= link_to 'All posts', user_posts_path(@user), class: "btn btn-primary" %>
+  </div>
 </div>
