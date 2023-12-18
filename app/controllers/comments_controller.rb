@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build
@@ -10,6 +11,11 @@ class CommentsController < ApplicationController
     return unless @comment.save
 
     redirect_to user_post_path(@post.author, @post), notice: 'Comment added!'
+  end
+
+  def show
+    @post = Post.find(params[:post_id])
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private
