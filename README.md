@@ -111,7 +111,7 @@ Follow these steps to utilize the Blog App:
 
 - 👤 **Ademola Owoeyee**
 
-- GitHub: [EvansSnave](https://github.com/Ademola-coding)
+- GitHub: [Ademola-coding](https://github.com/Ademola-coding)
 - Twitter: [Steady](https://twitter.com/Steady1700)
 - LinkedIn: [Ademola owoeye](https://www.linkedin.com/in/ademola-owoeye/)
 
