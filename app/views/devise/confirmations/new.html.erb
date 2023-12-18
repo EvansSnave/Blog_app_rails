@@ -1,8 +1,5 @@
 <div class="vh-100 d-flex justify-content-center align-items-start">
   <div class="w-50 mt-5">
-    <div class="text-center mb-4">
-      <%= image_tag "socials-logo-noback.PNG", alt: "Logo de la App", class: "img-fluid", style: "width: 200px;" %>
-    </div>
     <h2 class="text-center">Resend confirmation instructions</h2>
 
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "mt-4" }) do |f| %>
