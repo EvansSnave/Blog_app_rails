@@ -109,6 +109,12 @@ Follow these steps to utilize the Blog App:
 - Twitter: [Kroja13](https://twitter.com/Kroja13)
 - LinkedIn: [Kevin Cruz](https://www.linkedin.com/in/kevin-cruz-25159a201/)
 
+- - 👤 **Ademola Owoeyee**
+
+- GitHub: [Ademola-coding](https://github.com/Ademola-coding)
+- Twitter: [Steady](https://twitter.com/Steady1700)
+- LinkedIn: [Ademola owoeye](https://www.linkedin.com/in/ademola-owoeye/)
+
 ## 🤝 Contribution <a name="contributing"></a>
 
 Contributions, issues, and feature requests are highly encouraged! 
