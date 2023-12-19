@@ -1,0 +1,40 @@
+<div class="container mt-5">
+<h2>Post Details</h2>
+  <div class="d-flex align-items-start mb-4">
+    <div class="p-3">
+      <img src="path_to_default_profile_pic.jpg" alt="Profile" class="img-thumbnail" style="width: 100px; height: 100px;">
+    </div>
+    <div class="border p-3 flex-grow-1 d-flex flex-column">
+    <h1><%= @post.title %></h1>
+    <p>Written by: <%= @post.author.name %></p>
+      <h1><%= @post.title %></h1>
+      <div class="mt-auto text-right">
+        <small><%= @post.likes_counter %> likes</small>
+        <small><%= @post.comments_counter %> comments</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <h4>Comments</h4>
+      <ul class="list-group">
+      <% @recent_comments.each do |comment| %>
+        <li class="list-group-item">
+          <strong><%= comment.author.name %></strong>: <%= comment.text %>
+        </li>
+      <% end %>
+   </ul>   
+    </div>
+  </div>
+
+  <%= form_with model: [@post, Comment.new], url: user_post_comments_path(params[:user_id], @post), local: true do |form| %>
+    <%= form.label :text, "Add a Comment:" %>
+    <%= form.text_area :text %>
+    <%= form.submit "Comment" %>
+<% end %>
+
+  <div class="mt-3">
+  <%= button_to 'Like', user_post_likes_path(params[:user_id], @post), class: "btn btn-primary" %>
+  </div>
+</div>
