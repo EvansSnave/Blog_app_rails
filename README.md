@@ -19,9 +19,33 @@
 
 Welcome to the Blog App, a Ruby on Rails-based application designed for creating and managing a fully functional blog website. This project empowers users to publish articles, engage with posts through comments and likes, and more.
 
-## 🛠 Technology Stack <a name="built-with"></a>
 
-This project is developed using Ruby on Rails, a robust web framework renowned for its simplicity and productivity. Ruby on Rails serves as an excellent foundation for swiftly and efficiently building web applications.
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Ruby</summary>
+  <ul>
+    <li>Ruby on rails</li>
+  </ul>
+</details>
+
+<details>
+  <summary>rails</summary>
+  <ul>
+    <li>Rails</li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+
+<!-- Features -->
 
 ##  Key Features <a name="key-features"></a>
 
@@ -121,6 +145,9 @@ Contributions, issues, and feature requests are highly encouraged!
 
 ## ⭐️ Support <a name="support"></a>
 If you find this project useful, please consider giving it a ⭐️ to show your support!
+
+## Acknowledgement <a name="contributing"></a>
+Thanks to everyone whose code maybe used to make the project a success
 
 ## 📜 License <a name="license"></a>
 This project is licensed under the [MIT License](https://github.com/EvansSnave/Blog_app_rails/blob/dev/LICENSE).
