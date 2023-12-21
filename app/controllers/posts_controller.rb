@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
   before_action :authenticate_user!
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:likes, { comments: :author }).paginate(page: params[:page], per_page: 3)
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show

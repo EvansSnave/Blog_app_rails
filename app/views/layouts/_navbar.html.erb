@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%; font-size: 14px; align-items: center;">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item" style="margin-left: 17px; margin-top: 4px;">
+      <span class="navbar-text mr-3"><%= current_user.name %></span>
+    </li>    
+        <li class="nav-item" style="padding-left: 10px;">
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-danger' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Signup', new_user_registration_path, class: 'btn btn-outline-success' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
