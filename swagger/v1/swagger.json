@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1",
+    "description": "Descripción de tu API"
+  },
+  "paths": {
+    "/api/v1/users/{user_id}/posts/{post_id}/comments": {
+      "get": {
+        "summary": "Retrieve comments",
+        "tags": [
+          "Comments"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comments retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Comment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a Comment",
+        "tags": [
+          "Comments"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Comment created"
+          },
+          "422": {
+            "description": "Invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{user_id}/posts": {
+      "get": {
+        "summary": "Retrieve posts",
+        "tags": [
+          "Posts"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Posts retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Post"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "www.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "text"
+        ]
+      },
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "text": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "author"
+        ]
+      }
+    }
+  }
+}

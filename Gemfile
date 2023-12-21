@@ -14,6 +14,9 @@ gem 'pg', '~> 1.1'
 
 gem 'cancancan'
 gem 'jquery-rails'
+gem 'rswag-api'
+gem 'rswag-specs', '~> 2.0'
+gem 'rswag-ui'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'

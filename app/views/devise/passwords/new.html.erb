@@ -1,16 +1,19 @@
 <div class="vh-100 d-flex justify-content-center align-items-start">
-  <div class="w-50 mt-5">
+  <div class="w-25 mt-5"> <!-- Cambio de w-50 a w-25 para hacer la barra más angosta -->
+    <div class="text-center mb-4">
+      <%= image_tag "socials-logo-noback.PNG", alt: "Logo de la App", class: "img-fluid", style: "width: 200px;" %>
+    </div>
     <h2 class="text-center">Forgot your password?</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "mt-4" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
+      <div class="form-group mb-4"> <!-- Añadir mb-4 para dar espacio adicional antes del botón -->
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
-      <div class="actions">
+      <div class="actions mb-3"> <!-- Añadir mb-3 para dar espacio adicional antes de los links -->
         <%= f.submit "Send me reset password instructions", class: "btn btn-primary w-100" %>
       </div>
     <% end %>

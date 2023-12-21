@@ -1,5 +1,8 @@
 <div class="vh-100 d-flex justify-content-center align-items-start">
-  <div class="w-50 mt-5">
+  <div class="w-25 mt-5"> <!-- Cambio de w-50 a w-25 para hacer la barra más angosta -->
+    <div class="text-center mb-4">
+      <%= image_tag "socials-logo-noback.PNG", alt: "Logo de la App", class: "img-fluid", style: "width: 200px;" %>
+    </div>
     <h2 class="text-center">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-4" }) do |f| %>
@@ -16,13 +19,13 @@
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-group form-check">
+        <div class="form-group form-check mb-4"> <!-- Añadir mb-4 para dar espacio adicional antes del botón -->
           <%= f.check_box :remember_me, class: "form-check-input" %>
           <%= f.label :remember_me, class: "form-check-label" %>
         </div>
       <% end %>
 
-      <div class="actions">
+      <div class="actions mb-3"> <!-- Añadir mb-3 para dar espacio adicional antes de los links -->
         <%= f.submit "Log in", class: "btn btn-primary w-100" %>
       </div>
     <% end %>
