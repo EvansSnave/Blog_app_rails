@@ -5,12 +5,29 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build
   end
 
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @comments }
+    end
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(text: comment_params[:text], author: current_user)
-    return unless @comment.save
 
-    redirect_to user_post_path(@post.author, @post), notice: 'Comment added!'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to user_post_path(@post.author, @post), notice: 'Comment added!' }
+        format.json { render json: @comment, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show

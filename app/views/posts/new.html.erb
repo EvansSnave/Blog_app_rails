@@ -1,9 +1,24 @@
-<%= form_with model: @post, url: user_posts_path(params[:user_id]) do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+<div class="container mt-5">
+<h2 class="text-center mb-4">New Post</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= form_with model: @post, url: user_posts_path(params[:user_id]), class: 'text-center' do |form| %>
 
-  <%= form.label :text %>
-  <%= form.text_area :text %>
+        <div class="form-group">
+          <%= form.label :title, class: 'form-label' %>
+          <%= form.text_field :title, class: 'form-control' %>
+        </div>
 
-  <%= form.submit "Create Post" %>
-<% end %>
+        <div class="form-group">
+          <%= form.label :text, class: 'form-label' %>
+          <%= form.text_area :text, class: 'form-control', rows: 5 %>
+        </div>
+
+        <div class="form-group mt-4">
+          <%= form.submit "Create Post", class: 'btn btn-primary' %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
