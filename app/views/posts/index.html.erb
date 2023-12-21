@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <!-- Sección de usuario -->
+  <h2>Users List</h2>
   <div class="d-flex align-items-start mb-4">
     <div class="p-3">
       <img src="path_to_default_profile_pic.jpg" alt="Profile" class="img-thumbnail" style="width: 100px; height: 100px;">
@@ -7,7 +8,7 @@
     <div class="border p-3 flex-grow-1 d-flex flex-column">
       <h1><%= @user.name %></h1>
       <div class="mt-auto text-right">
-        <small><%= @user.posts.count %> posts</small>
+      <small><%= @user.posts.count %> posts</small>
       </div>
     </div>
   </div>
@@ -19,8 +20,14 @@
     <div class="card mb-4">
       <div class="card-body">
         <%= link_to post.title, user_post_path(@user, post) %>
+        <p><%= truncate(post.text, length: 25) %></p>
+        <%= link_to 'See more', user_post_path(@user, post), class: 'btn btn-link' %>
         <p><%= post.comments.count %> comments</p>
         <p><%= post.likes.count %> likes</p>
+        <% if can? :destroy, post %>
+        <!-- Línea actualizada: enlace de eliminación sustituido por el botón -->
+        <%= button_to 'Delete Post', user_post_deletion_path(@user, post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
     

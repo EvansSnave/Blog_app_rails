@@ -1,7 +1,15 @@
 <h2>New Comment</h2>
 
-<%= form_with model: [@post, Comment.new], url: user_post_comments_path(@post.user, @post), local: true do |form| %>
+<%= form_with model: [@post, Comment.new], url: user_post_comments_path(@post.author, @post), local: true do |form| %>
   <%= form.label :text, "Add a Comment:" %>
   <%= form.text_area :text %>
   <%= form.submit "Submit Comment" %>
+<% end %>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  <% if comment.persisted? && can?(:destroy, comment) %>
+  <%= button_to 'Delete', user_post_comment_deletion_path(@post.author, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
