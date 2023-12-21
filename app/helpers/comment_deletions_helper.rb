@@ -1,2 +1,2 @@
-module CommentDeletionsHelper
+module PostDeletionsHelper
 end
