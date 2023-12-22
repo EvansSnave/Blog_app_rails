@@ -1,0 +1,19 @@
+<section class="user-container d-flex-col">
+  <%= render partial: 'user_card', object: @user, as: :user %>
+
+  <div class="border bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+  
+  <%= create_post(@user) %>
+
+  <div class="d-flex-col post-container">
+    <%= render partial: 'posts/posts_card', collection: @user.three_recent_posts, as: :post %>
+  </div>
+  <div class="d-flex btn-nav">
+    <%= show_all_post(@user) %>
+    <%= navigation_buttons %>
+  </div>
+</section>
+<span class="tests">Info from specific user</span>

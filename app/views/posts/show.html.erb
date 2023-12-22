@@ -1,0 +1,22 @@
+<div class="user-container d-flex-col">
+  <%= delete_post(@post, @post.author) %>
+  <div class ="border post-detail">
+    <h3><%= @post.title %> by <%= @post.author.name %></h3>
+    <div class="counters d-flex">
+      <span>Comments: <%= @post.comments_counter %></span>
+      <span>Likes: <%= @post.likes_counter %></span>
+    </div>
+    <span><%= @post.text %></span>
+  </div>
+
+  <div class="btn-comen d-flex">
+    <button><%= link_to 'Create comment', new_user_post_comment_path(@post.author,@post) %></button>
+    <%= add_like %>
+  </div>
+
+  <%= show_all_comments(@post) %>
+  <div class="d-flex btn-nav">
+    <%= navigation_buttons %>
+  </div>
+</div>
+<span class="tests">Post and its comments</span>
