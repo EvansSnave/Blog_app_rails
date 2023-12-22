@@ -1,44 +1,61 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:likes, { comments: :author }).paginate(page: params[:page], per_page: 3)
-    respond_to do |format|
-      format.html
-      format.json { render json: @posts }
-    end
-  end
 
-  def show
-    @user = User.find(params[:user_id])
-    @post = @user.posts.includes(:likes, { comments: :author }).find(params[:id])
-    @recent_comments = @post.five_recent_comments
+    @posts = @user.posts.includes(comments: :author).page(params[:page]).per(4)
   end
 
   def new
-    @post = Post.new
+    @user_current = current_user
+    @post_new = @user_current.posts.new
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    if @post.save
-      redirect_to root_path, notice: 'Post created successfully'
+    post = current_user.posts.new(posts_params)
+    if post.save
+      redirect_to user_path(current_user)
     else
       render :new
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @liked = like_exist?(@post, current_user)
+  end
+
+  def createlike
+    @post = Post.find(params[:id])
+    Like.create(post: @post, author: current_user)
+    redirect_to user_post_path(@post.author, @post)
+  end
+
+  def deletelike
+    @post = Post.find(params[:id])
+    @like = @post.likes.find_by(author: current_user)
+    @like.destroy
+    @like.update_likes_counter
+    redirect_to user_post_path(@post.author, @post)
+  end
+
   def destroy
-    @user = User.find(params[:user_id])
-    authorize! :destroy, @post
-    @post = @user.posts.find(params[:id])
-    @post.destroy
-    redirect_to user_posts_path(@user), notice: 'Post deleted!'
+    @post = Post.find(params[:id])
+    Comment.where(post_id: @post).delete_all if Comment.where(post_id: @post).any?
+    Like.where(post_id: @post.id).delete_all if Like.where(post_id: @post.id).any?
+    user = User.find(params[:user_id])
+    return unless @post.destroy
+
+    @post.update_post_counter
+    redirect_to user_path(user)
   end
 
   private
 
-  def post_params
+  def posts_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def like_exist?(post, user_id)
+    post.likes.where(author: user_id).exists?
   end
 end

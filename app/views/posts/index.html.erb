@@ -1,48 +1,13 @@
-<div class="container mt-5">
-  <!-- Sección de usuario -->
-  <h2>Users List</h2>
-  <div class="d-flex align-items-start mb-4">
-    <div class="border p-3 flex-grow-1 d-flex flex-column">
-      <h1><%= @user.name %></h1>
-      <div class="mt-auto text-right">
-      <small><%= @user.posts.count %> posts</small>
-      </div>
-    </div>
-  </div>
+<section class="user-container d-flex-col">
+  <%= render partial: 'users/user_card', object: @user, as: :user %>
 
-  <!-- Sección de lista de posts -->
-  <h2 class="mb-4">All Posts by <%= @user.name %></h2>
+  <%= render partial: 'posts_comments', collection: @posts, as: :post %>
   
-  <% @posts.each do |post| %>
-    <div class="card mb-4">
-      <div class="card-body">
-        <%= link_to post.title, user_post_path(@user, post) %>
-        <p><%= truncate(post.text, length: 25) %></p>
-        <%= link_to 'See more', user_post_path(@user, post), class: 'btn btn-link' %>
-        <p><%= post.comments.count %> comments</p>
-        <p><%= post.likes.count %> likes</p>
-        <% if can? :destroy, post %>
-        <!-- Línea actualizada: enlace de eliminación sustituido por el botón -->
-        <%= button_to 'Delete Post', user_post_deletion_path(@user, post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "btn btn-danger" %>
-        <% end %>
-      </div>
-    </div>
-    
-    <!-- Comentarios para el post actual -->
-    <div class="card mt-2">
-      <div class="card-body">
-        <h5>Comments for <%= post.title %></h5>
-        <ul class="list-group">
-          <% post.comments.limit(5).each do |comment| %>
-              <li class="list-group-item"><%= comment.text %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-  
-  <!-- Paginación -->
-  <div class="mt-4 d-flex justify-content-center">
-  <%= will_paginate @posts, previous_label: '&laquo;', next_label: '&raquo;', class: 'pagination justify-content-center' %>
+  <div class="d-flex btn-nav">
+    <span class="pagination">
+      <%= paginate @posts, window: 2 %>
+    </span>
+    <%= navigation_buttons %>
   </div>
-</div>
+</section>
+<span class="tests">List of posts, general views</span>

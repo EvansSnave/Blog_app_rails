@@ -1,40 +1,47 @@
-<div class="vh-100 d-flex justify-content-center align-items-start">
-  <div class="w-25 mt-5"> <!-- Cambio de w-50 a w-25 para hacer la barra más angosta -->
-    <h2 class="text-center">Sign up</h2>
+<section class="d-flex-col user-container center">
+  <h2>Sign up</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-4" }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
-      </div>    
-
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="form-group mb-4"> <!-- Añadir mb-4 para dar espacio adicional antes del botón -->
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="actions mb-3"> <!-- Añadir mb-3 para dar espacio adicional antes de los links -->
-        <%= f.submit "Sign up", class: "btn btn-primary w-100" %>
-      </div>
-    <% end %>
-
-    <div class="mt-3">
-      <%= render "devise/shared/links" %>
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, placeholder: "Name" %>
     </div>
-  </div>
-</div>
+
+    <div class="field">
+      <%= f.text_area :bio, autofocus: true, placeholder: "Bio" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :photo, autofocus: true, placeholder: "Link to photo" %>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+    </div>
+
+    <div class="field">
+      <ul>
+        <li>User <%= f.radio_button :role, 'User', :checked => true %></li>
+        <li>Admin <%= f.radio_button :role, 'Admin' %></li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>

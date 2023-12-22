@@ -1,15 +1,18 @@
-<h2>New Comment</h2>
-
-<%= form_with model: [@post, Comment.new], url: user_post_comments_path(@post.author, @post), local: true do |form| %>
-  <%= form.label :text, "Add a Comment:" %>
-  <%= form.text_area :text %>
-  <%= form.submit "Submit Comment" %>
+<section class="user-container d-flex-col">
+<h3 class="add-post">Add new comment</h3>
+<%= form_with(model:[@user, @post, @comment]) do |form| %>
+  <div class="form-div">
+    <%= form.label :author, "#{@current.name}" %>
+  </div>
+  <div class="form-div">
+    <%= form.label :text, "Comment:" %>
+    <%= form.text_area :text %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div class="form-div">
 <% end %>
-
-<h3>Comments</h3>
-<% @post.comments.each do |comment| %>
-  <p><%= comment.text %></p>
-  <% if comment.persisted? && can?(:destroy, comment) %>
-  <%= button_to 'Delete', user_post_comment_deletion_path(@post.author, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
+<div class="d-flex btn-nav">
+    <%= navigation_buttons %>
+  </div>
+</section>

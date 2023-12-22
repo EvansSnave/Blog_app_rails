@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogAppRails</title>
+    <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class="container">
+    <main class="container d-flex-col">
+      <nav class="d-flex-col nav">
+        <section class="d-flex nav-sect">
+          <% if user_signed_in? %>
+            <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          <% end %>
+        </section>
+        <section class="d-flex-col nav-sect">
+          <p class="d-flex notice"><%= notice %></p>
+          <p class="d-flex alert"><%= alert %></p>
+        </section>
+      </nav>
       <%= yield %>
-    </div>
+    </main>
   </body>
 </html>
